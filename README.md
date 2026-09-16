@@ -9,11 +9,13 @@ Import `kath-pahotu/marketing-porfolio` and use:
 | Setting | Value |
 | --- | --- |
 | Production branch | `main` |
-| Root Directory | `website` |
+| Root Directory | `.` (repository root; the default) |
 | Framework Preset | Other |
 | Build Command | Leave empty (no build required) |
-| Output Directory | `.` (the root directory) |
+| Output Directory | `website` (set automatically by `vercel.json`) |
 | Install Command | Leave empty (no dependencies required) |
+
+The root `vercel.json` publishes only `website/` and disables install/build steps. This also works when importing the repository with the default Root Directory, avoiding a 404 at `/`. If an existing project uses `website` as its Root Directory, its nested configuration still supports that setup with Output Directory `.`.
 
 The generated HTML, CSS, JavaScript, images and public CV are committed, so deployment does not require Python or a build step. The repository does not contain the previous Vercel project association. The owner handles deployment.
 

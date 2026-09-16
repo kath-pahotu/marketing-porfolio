@@ -4,6 +4,7 @@
 !/README.md
 !/build_website.py
 !/requirements.txt
+!/vercel.json
 !/source/
 /source/*
 !/source/content.py
