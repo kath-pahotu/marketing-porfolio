@@ -2,6 +2,16 @@
 
 Phan Hoai Thu’s marketing portfolio: campaign leadership, paid acquisition, SEO, conversion and supporting analytics.
 
+## Live site and automatic deployment
+
+- Primary portfolio: https://kathuonmkt.vercel.app
+- Vercel project: `kathuonmkt` in Phan Hoai Thu’s projects.
+- Connected repository: `kath-pahotu/marketing-porfolio`.
+- Production branch: `main`.
+- Pushes to `main` automatically deploy to the primary portfolio address.
+
+The separately imported `marketing-porfolio` Vercel project also uses this repository. Its address is https://marketing-porfolio.vercel.app.
+
 ## Deploy on Vercel
 
 Import `kath-pahotu/marketing-porfolio` and use:
@@ -17,7 +27,7 @@ Import `kath-pahotu/marketing-porfolio` and use:
 
 The root `vercel.json` publishes only `website/` and disables install/build steps. This also works when importing the repository with the default Root Directory, avoiding a 404 at `/`. If an existing project uses `website` as its Root Directory, its nested configuration still supports that setup with Output Directory `.`.
 
-The generated HTML, CSS, JavaScript, images and public CV are committed, so deployment does not require Python or a build step. The repository does not contain the previous Vercel project association. The owner handles deployment.
+The generated HTML, CSS, JavaScript, images and public CV are committed, so deployment does not require Python or a build step. Local `.vercel` project associations stay outside Git. The existing `kathuonmkt` project is connected to this repository for automatic deployments.
 
 The canonical URLs, sitemap and social metadata use `https://kathuonmkt.vercel.app`. If deploying under another address, update `PROFILE['site']` in `source/content.py` and rebuild before publishing.
 
