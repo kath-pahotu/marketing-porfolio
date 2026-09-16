@@ -1,0 +1,13 @@
+{
+  "name": "kathuonmkt",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Phan Hoai Thu marketing portfolio",
+  "scripts": {
+    "dev": "python -m http.server 4173",
+    "deploy": "vercel --prod"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

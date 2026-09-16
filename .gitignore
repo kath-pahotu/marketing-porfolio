@@ -1,0 +1,20 @@
+# Publish only the site and its content/build sources.
+/*
+!/.gitignore
+!/README.md
+!/build_website.py
+!/requirements.txt
+!/source/
+/source/*
+!/source/content.py
+!/source/build_site.py
+!/source/refine_site.py
+!/source/refinements.css
+!/website/
+.vercel/
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.*
+.dev.vars
