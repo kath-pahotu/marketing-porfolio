@@ -19,3 +19,9 @@ __pycache__/
 .env
 .env.*
 .dev.vars
+
+!/source/revamp_content.py
+!/source/build_tracks.py
+!/source/build_cvs.py
+!/source/revamp.css
+!/source/revamp.js

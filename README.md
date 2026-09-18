@@ -1,64 +1,32 @@
-# KAThu on marketing
+# KAThu marketing analytics portfolio
 
-Phan Hoai Thu’s marketing portfolio: campaign leadership, paid acquisition, SEO, conversion and supporting analytics.
+Live: https://kathuonmkt.vercel.app
+Repository: https://github.com/kath-pahotu/marketing-porfolio
 
-## Live site and automatic deployment
+The Marketing Analyst track leads with marketplace growth, campaign targeting and ad incrementality, backed by Golden Owl campaign experience. The completed-project collection contains the five cases approved in the September 2026 brief.
 
-- Primary portfolio: https://kathuonmkt.vercel.app
-- Vercel project: `kathuonmkt` in Phan Hoai Thu’s projects.
-- Connected repository: `kath-pahotu/marketing-porfolio`.
-- Production branch: `main`.
-- Pushes to `main` automatically deploy to the primary portfolio address.
+## Deployment
 
-The separately imported `marketing-porfolio` Vercel project also uses this repository. Its address is https://marketing-porfolio.vercel.app.
+Pushes to `main` automatically deploy to the existing `kathuonmkt` Vercel project. The separately imported `marketing-porfolio` Vercel project also follows this repository.
 
-## Deploy on Vercel
+- Root Directory: `.`
+- Framework: Other
+- Build/install commands: empty
+- Output Directory: `website` (configured in the root `vercel.json`)
 
-Import `kath-pahotu/marketing-porfolio` and use:
-
-| Setting | Value |
-| --- | --- |
-| Production branch | `main` |
-| Root Directory | `.` (repository root; the default) |
-| Framework Preset | Other |
-| Build Command | Leave empty (no build required) |
-| Output Directory | `website` (set automatically by `vercel.json`) |
-| Install Command | Leave empty (no dependencies required) |
-
-The root `vercel.json` publishes only `website/` and disables install/build steps. This also works when importing the repository with the default Root Directory, avoiding a 404 at `/`. If an existing project uses `website` as its Root Directory, its nested configuration still supports that setup with Output Directory `.`.
-
-The generated HTML, CSS, JavaScript, images and public CV are committed, so deployment does not require Python or a build step. Local `.vercel` project associations stay outside Git. The existing `kathuonmkt` project is connected to this repository for automatic deployments.
-
-The canonical URLs, sitemap and social metadata use `https://kathuonmkt.vercel.app`. If deploying under another address, update `PROFILE['site']` in `source/content.py` and rebuild before publishing.
-
-## Files
-
-- `website/`: ready-to-deploy static site, all 13 case studies and the downloadable public CV.
-- `source/content.py`: profile, experience and case-study content.
-- `source/build_site.py`: base HTML generator.
-- `source/refine_site.py`: final homepage, project library and case-study presentation.
-- `source/refinements.css`: additional shared styling, copied during rebuild.
-- `website/assets/katherine-ava.png`: supplied banner photograph.
-
-## Preview
-
-```sh
-python -m http.server 4173 --directory website
-```
-
-Open `http://localhost:4173`.
+Generated files are committed, so Vercel does not run Python. The canonical URL remains `https://kathuonmkt.vercel.app`.
 
 ## Edit and rebuild
 
-For text changes, edit the source files and run:
+1. Edit public content in `source/revamp_content.py`.
+2. Run `pip install -r requirements.txt`.
+3. Run `python build_website.py` to rebuild both the marketing CV and site.
+4. Commit source changes and generated `website/` files.
 
-```sh
-python -m pip install -r requirements.txt
-python build_website.py
-```
+The CV generator uses Windows Arial. Public styles and interactions are `source/revamp.css` and `source/revamp.js`; the site generator is `source/build_tracks.py`. `source/build_site.py` and `source/refine_site.py` delegate to the current build entry point for compatibility.
 
-The sharing-card generator currently uses Windows Arial (`C:/Windows/Fonts/arialbd.ttf`), so run the optional rebuild on Windows. Deployments use the existing generated files and do not need that font.
+Preview: `python -m http.server 4173 --directory website`.
 
-Base styles and interactions live in `website/style.css` and `website/app.js`. Update `source/refinements.css` for refinement styles, then rebuild. The public CV is a checked-in PDF; replace it directly if the CV changes. Commit both source edits and generated website files.
+The new downloadable CV is `website/documents/Phan_Hoai_Thu_Marketing_Analyst_CV.pdf`. The old Digital_Marketing filename serves the same current PDF so previous links keep working. Editable CVs remain local in `cv/`.
 
-Original private reports, tailored job applications, local authentication files and QA artifacts are kept outside version control. The mobility case links to the separately hosted password-protected data portfolio; no password or authentication implementation is included here.
+The five case studies distinguish independent analysis from employment, synthetic data from company data, and recommendations from implemented results. Power BI is independent-project experience; Golden Owl used GA4 and Looker Studio. The confidential case links to the existing protected data-site route. Credentials, raw reports and private evidence are not included in this repository.
