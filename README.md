@@ -1,32 +1,20 @@
-# KAThu marketing analytics portfolio
+# KAThu on marketing
 
 Live: https://kathuonmkt.vercel.app
 Repository: https://github.com/kath-pahotu/marketing-porfolio
 
-The Marketing Analyst track leads with marketplace growth, campaign targeting and ad incrementality, backed by Golden Owl campaign experience. The completed-project collection contains the five cases approved in the September 2026 brief.
+The portfolio leads with paid acquisition, SEO, conversion and campaign leadership. Seven professional cases come before five independent analytics studies. Business-context sections connect the work through customer journeys and commercial decisions.
+
+## Edit and build
+
+Edit `source/content.py` for case facts, `source/build_site.py` and `source/refine_site.py` for the original presentation, and `source/business_context.py` / `source/business.css` for business context and connections. Run `python build_website.py`. The checked-in website is published directly; Vercel does not run Python.
+
+The active build is campaign-led. The older `build_tracks.py` and `revamp_content.py` belong to the previous analytics-led version and are not part of this build.
+
+The primary download is `website/documents/Phan_Hoai_Thu_Digital_Marketing_CV.pdf`. The separate Marketing Analyst CV stays available at its existing URL. Power BI is independent-project experience; professional Golden Owl reporting used GA4 and Looker Studio. TrueProfit is excluded.
 
 ## Deployment
 
-Pushes to `main` automatically deploy to the existing `kathuonmkt` Vercel project. The separately imported `marketing-porfolio` Vercel project also follows this repository.
+Pushes to main deploy to the existing kathuonmkt Vercel project. Root: repository root. Framework: Other. Output: website. Keep the root `vercel.json` outputDirectory setting. The separate marketing-porfolio Vercel project also follows this repository.
 
-- Root Directory: `.`
-- Framework: Other
-- Build/install commands: empty
-- Output Directory: `website` (configured in the root `vercel.json`)
-
-Generated files are committed, so Vercel does not run Python. The canonical URL remains `https://kathuonmkt.vercel.app`.
-
-## Edit and rebuild
-
-1. Edit public content in `source/revamp_content.py`.
-2. Run `pip install -r requirements.txt`.
-3. Run `python build_website.py` to rebuild both the marketing CV and site.
-4. Commit source changes and generated `website/` files.
-
-The CV generator uses Windows Arial. Public styles and interactions are `source/revamp.css` and `source/revamp.js`; the site generator is `source/build_tracks.py`. `source/build_site.py` and `source/refine_site.py` delegate to the current build entry point for compatibility.
-
-Preview: `python -m http.server 4173 --directory website`.
-
-The new downloadable CV is `website/documents/Phan_Hoai_Thu_Marketing_Analyst_CV.pdf`. The old Digital_Marketing filename serves the same current PDF so previous links keep working. Editable CVs remain local in `cv/`.
-
-The five case studies distinguish independent analysis from employment, synthetic data from company data, and recommendations from implemented results. Power BI is independent-project experience; Golden Owl used GA4 and Looker Studio. The confidential case links to the existing protected data-site route. Credentials, raw reports and private evidence are not included in this repository.
+The confidential case links to the password-protected data portfolio. No private report or access secret belongs in this repository.

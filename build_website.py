@@ -1,8 +1,11 @@
+"""Rebuild the checked-in static website using the editable content sources."""
 from pathlib import Path
+import os
+import subprocess
 import sys
-root=Path(__file__).resolve().parent
-sys.path.insert(0,str(root/'source'))
-from build_tracks import build
-from build_cvs import make_cv
-make_cv('marketing',root,track_root=root)
-build('marketing',root)
+
+root = Path(__file__).resolve().parent
+env = dict(os.environ, MARKETING_OUTPUT_DIR=str(root))
+for script in ("build_site.py", "refine_site.py", "business_context.py"):
+    subprocess.run([sys.executable, str(root / "source" / script)], env=env, check=True)
+print("Website rebuilt in website/.")

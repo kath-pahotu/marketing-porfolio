@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /private/
-Disallow: /portfolio-login
 Sitemap: https://kathuonmkt.vercel.app/sitemap.xml
