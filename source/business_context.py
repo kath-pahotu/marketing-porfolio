@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from html import escape as e
 import hashlib, os, shutil
 from content import CASES
+from business_explorer import render_explorer, attach_assets
 
 ROOT=Path(os.environ.get('MARKETING_OUTPUT_DIR',Path(__file__).resolve().parent.parent))
 SITE=ROOT/'website'
@@ -50,11 +51,7 @@ selected.append(fragment('''<div class="campaign-followthrough"><h3>Carry demand
 </div></div>'''))
 # The complete-work link belongs after the campaign collection.
 selected.append(selected.select_one('.all-work-link').extract())
-ecosystem='''<section class="business-map" id="business"><div class="business-map-inner"><h2>One customer journey. Connected marketing decisions.</h2><p class="business-intro">The business model changes what a useful conversion means: a qualified enquiry for an agency, a signup for an online service, or a completed and repeated purchase for a retailer. I connect the work around that outcome.</p>
-<ol class="business-path"><li><a href="/work/the-lab/">Understand the audience</a><span>Market, need and buying moment shape the message and media plan.</span></li><li><a href="/work/turisvpn/">Build demand</a><span>Paid campaigns, search visibility and useful content bring the right people in.</span></li><li><a href="/work/conversion-optimization/">Support the next step</a><span>Landing pages, product paths and sales handoffs turn interest into action.</span></li><li><a href="/work/rokt/">Learn and reinvest</a><span>Lead quality, repeat behaviour and experiments inform the next priority.</span></li></ol>
-<div class="business-domains"><article class="business-domain"><h3>B2B technology and SaaS</h3><p>Connect considered purchases and product intent with qualified demand. My Golden Owl work spans the agency’s own acquisition and client projects for TurisVPN and LeaseRunner.</p><p><a href="/work/golden-owl/">Demand generation</a> · <a href="/work/leaserunner/">Organic growth</a> · <a href="/work/lead-quality/">Sales feedback</a></p><small>Professional delivery during Golden Owl, Apr 2024–Sep 2025. Downloads and signups are distinct from activation and revenue.</small></article>
-<article class="business-domain"><h3>Ecommerce and marketplaces</h3><p>Canawan’s Etsy/Amazon operations and Laptop SGN’s retail analysis ground my understanding of products, acquisition and conversion. Independent studies extend it into retention and promotion economics.</p><p><a href="#experience">Marketplace experience</a> · <a href="/work/laptop-sgn/">Retail customer journey</a> · <a href="/work/growth-and-retention/">Marketplace growth</a></p><small>Professional ecommerce experience, supported by clearly labeled independent studies.</small></article>
-<article class="business-domain"><h3>Consumer acquisition and efficiency</h3><p>The Lab connects audience needs and seasonal demand to paid acquisition. Bank targeting, promotion review and Rokt extend the toolkit for deciding who to reach, where cost concentrates and whether ads add value.</p><p><a href="/work/the-lab/">Education campaign</a> · <a href="/work/campaign-targeting/">Audience prioritization</a> · <a href="/work/rokt/">Incrementality</a></p><small>The Lab is professional campaign work. Banking, fintech and holdout analysis are independent case studies.</small></article></div></div></section>'''
+ecosystem=render_explorer()
 selected.insert_after(fragment(ecosystem))
 support='''<section class="section wrap supporting-work" id="analytics"><div class="section-heading"><div><h2>Analytics behind the next marketing decision.</h2></div><p>Professional retail analysis and five solo studies deepen my measurement toolkit. They support campaign judgement, with the data source and limits stated in every case.</p></div><div class="supporting-links">'''
 support_items=[('laptop-sgn','Where does retail traffic stop converting?','Professional work · Retail ecommerce'),('campaign-targeting','Who should a limited campaign reach first?','Independent study · Banking'),('promotion-review','Where does promotion cost concentrate?','Independent study · Digital wallets'),('growth-and-retention','Is growth supported by repeat use?','Independent confidential case · Marketplace'),('thelook','What follows the first purchase?','Independent synthetic-data study · Ecommerce'),('rokt','Did the advertising add conversions?','Independent holdout analysis · Experimentation')]
@@ -69,6 +66,7 @@ for p in paras:
   p.string='My commercial foundation spans SaaS client projects, B2B demand generation, Etsy/Amazon marketplace operations and electronics retail. Different journeys call for different messages, KPIs and delivery plans.'
 home.select_one('.capabilities dd:nth-of-type(3)').string='GA4, GTM, Looker Studio, Excel, SQL and customer segmentation; Power BI and Python in independent projects'
 nav=home.select_one('#navigation');nav.select_one('a[href="/#approach"]').insert_before(fragment('<a href="/#business">Business context</a>'))
+attach_assets(home)
 save(homepath,home)
 
 # Make the two layers explicit in the complete library; keep the original filters.

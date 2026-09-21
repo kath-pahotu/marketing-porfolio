@@ -28,3 +28,9 @@ __pycache__/
 
 !/source/business_context.py
 !/source/business.css
+
+!/source/business_explorer.py
+!/source/business-explorer.css
+!/source/business-explorer.js
+!/source/portrait.css
+.vercel
