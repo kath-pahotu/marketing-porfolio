@@ -33,4 +33,7 @@ __pycache__/
 !/source/business-explorer.css
 !/source/business-explorer.js
 !/source/portrait.css
+!/source/section_experiences.py
+!/source/section-experiences.css
+!/source/section-experiences.js
 .vercel
